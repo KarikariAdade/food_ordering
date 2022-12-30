@@ -12,13 +12,13 @@ class _OrderState extends State<Order> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
-        scrollDirection: Axis.vertical,
-        children: <Widget>[
-          OrderCard(),
-        ],
-      ),
+        child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          scrollDirection: Axis.vertical,
+          children: <Widget>[
+            OrderCard(),
+          ],
+        ),
     );
   }
 }
