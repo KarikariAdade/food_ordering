@@ -144,6 +144,38 @@ class _ProfileState extends State<Profile> {
                       ],
                     ),
                   ),
+                ),
+                SizedBox(height: 20.0,),
+                Text(
+                  'Other',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
+                ),
+                SizedBox(height: 10.0,),
+                Card(
+                  elevation: 5.0,
+                  child: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text('Language', style: TextStyle(fontSize: 16.0),)
+                          ],
+                        ),
+                        SizedBox(height: 20.0,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text('Currency', style: TextStyle(fontSize: 16.0),),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 )
               ],
             ),

@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
   late HomePage homePage;
   late Order orderPage;
   late Profile profilePage;
-  late Favourite favouritePage;
+  late Explore explorePage;
 
   @override
   void initState() {
@@ -44,9 +44,9 @@ class _MainScreenState extends State<MainScreen> {
     homePage = HomePage();
     orderPage = Order();
     profilePage = Profile();
-    favouritePage = Favourite();
+    explorePage = Explore();
 
-    pages = [homePage, orderPage,favouritePage, profilePage];
+    pages = [homePage, explorePage, orderPage, profilePage];
     currentPage = homePage;
 
     super.initState();
@@ -72,12 +72,12 @@ class _MainScreenState extends State<MainScreen> {
              label: 'Home',
            ),
            BottomNavigationBarItem(
-             icon: Icon(Icons.shopping_cart),
-             label: 'Orders',
+             icon: Icon(Icons.favorite),
+             label: 'Explore',
            ),
            BottomNavigationBarItem(
-             icon: Icon(Icons.favorite),
-             label: 'Favorites',
+             icon: Icon(Icons.shopping_cart),
+             label: 'Orders',
            ),
            BottomNavigationBarItem(
              icon: Icon(Icons.person),
@@ -86,7 +86,7 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       body: currentPage,
-      appBar: currentTabIndex == 1 ? AppBar(
+      appBar: currentTabIndex == 2 ? AppBar(
         centerTitle: true,
         elevation: 0.0,
         title: Text(

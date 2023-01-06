@@ -4,6 +4,7 @@ import 'package:food_ordering/src/scope_model/main_model.dart';
 import 'package:food_ordering/src/screens/pages/main_screen.dart';
 import 'package:scoped_model/scoped_model.dart';
 
+import 'admin/pages/add_food_item.dart';
 import 'homescreen.dart';
 
 class App extends StatelessWidget {
@@ -23,7 +24,8 @@ class App extends StatelessWidget {
             primaryColor: Colors.blueAccent,
           ),
           debugShowCheckedModeBanner: false,
-          home: MainScreen(mainModel: mainModel),
+          // home: MainScreen(mainModel: mainModel),
+          home: AddFoodItem(),
         )
     );
   }
