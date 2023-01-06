@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:food_ordering/src/data/food_data.dart';
+import 'package:food_ordering/src/scope_model/main_model.dart';
 import 'package:food_ordering/src/screens/pages/favourite_page.dart';
 import 'package:food_ordering/src/screens/pages/home_page.dart';
 import 'package:food_ordering/src/screens/pages/order_page.dart';
 import 'package:food_ordering/src/screens/pages/profile.dart';
 
+import '../../scope_model/food_model.dart';
+
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  final MainModel mainModel;
+
+  MainScreen({required this.mainModel});
+
+
+  // Accept the food model
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -27,14 +36,21 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    super.initState();
+
+    widget.mainModel.fetchFoods();
+
+    // Call the fetch method on food
+    widget.mainModel.fetchFoods();
     homePage = HomePage();
     orderPage = Order();
     profilePage = Profile();
     favouritePage = Favourite();
 
-    pages = [homePage, orderPage, profilePage, favouritePage];
+    pages = [homePage, orderPage,favouritePage, profilePage];
     currentPage = homePage;
+
+    super.initState();
+
   }
 
   Widget build(BuildContext context) {

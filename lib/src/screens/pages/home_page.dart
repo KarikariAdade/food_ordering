@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_ordering/src/scope_model/food_model.dart';
+import 'package:food_ordering/src/scope_model/main_model.dart';
 import 'package:food_ordering/src/widgets/bought_foods.dart';
 import 'package:food_ordering/src/widgets/food_category.dart';
 import 'package:food_ordering/src/widgets/home_top_info.dart';
@@ -6,9 +8,10 @@ import 'package:food_ordering/src/widgets/search_field.dart';
 
 import 'package:food_ordering/src/data/food_data.dart';
 import 'package:food_ordering/src/models/food_model.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -18,8 +21,12 @@ class _HomePageState extends State<HomePage> {
 
 
 
-
   @override
+  void initState() {
+    super.initState();
+  }
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -53,9 +60,17 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             SizedBox(height: 20.0,),
-            Column(
-                children: foods.map(_buildFoodItems).toList()
-            )
+            ScopedModelDescendant<MainModel>(
+              builder: (context, child, MainModel model) => Column(
+                      children: model.foods.map(_buildFoodItems).toList()
+                ),
+            ),
+
+      //       ScopedModelDescendant(BuildContext context, Widget child, Model model){
+      //       return Column(
+      //       children: widget.foodModel.foods.map(_buildFoodItems).toList()
+      // );
+      //       }
           ],
         ),
       ),
@@ -66,10 +81,10 @@ class _HomePageState extends State<HomePage> {
     return Container(
       margin: EdgeInsets.only(bottom: 20.0),
       child: BoughtFoods(
-          food.id,
+          food.id.toString(),
           food.name,
           food.imagePath,
-          food.category,
+          food.category.toString(),
           food.price,
           food.discount,
           food.ratings

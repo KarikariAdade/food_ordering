@@ -10,12 +10,13 @@ class OrderCard extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
+
           children: <Widget>[
             Container(
               height: 75.0,
               width: 45.0,
               decoration: BoxDecoration(
-                border: Border.all(width: 2.0, color: Color(0xFFD3D3D3)),
+                border: Border.all(width: 2.0, color: const Color(0xFFD3D3D3)),
                 borderRadius: BorderRadius.circular(10.0)
               ),
               child: Column(
@@ -67,7 +68,7 @@ class OrderCard extends StatelessWidget {
                 ),
                 SizedBox(height: 5.0,),
                 Text(
-                    '3.0',
+                    '\u01FE 3.0',
                   style: TextStyle(
                     color: Colors.orangeAccent,
                     fontSize: 16.0
@@ -98,6 +99,7 @@ class OrderCard extends StatelessWidget {
                 )
               ],
             ),
+            SizedBox(width: 60.0,),
             GestureDetector(
               onTap: (){},
               child: Icon(
